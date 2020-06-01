@@ -265,7 +265,7 @@ main .fm-call-to-action p {
 
 @media (min-width: 800px) {
   body {
-    min-height: 640px;
+    min-height: 480px;
   }
 
   .container {
