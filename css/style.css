@@ -4,6 +4,7 @@
 /* Variables */
 :root {
   --color-red: hsl(0, 100%, 68%);
+  --color-red-light: hsla(0, 100%, 68%, 0.678);
   --color-very-dark-blue: hsl(230, 29%, 20%);
   --color-dark-grayish-blue: hsl(230, 11%, 40%);
   --color-grayish-blue: hsl(231, 7%, 65%);
@@ -117,6 +118,10 @@ header nav a {
   color: var(--color-very-dark-blue);
 }
 
+header nav a:hover {
+  text-decoration: underline;
+}
+
 header nav a:first-child {
   padding-top: 24px;
 }
@@ -144,6 +149,116 @@ header nav a#login {
 header.toggled nav {
   visibility: visible;
   opacity: 1;
+}
+
+main {
+  height: 100vh;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: 'hero hero' 'caption caption';
+}
+
+main .fm-background {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+
+  background-color: var(--color-light-grayish-blue);
+  border-radius: 0px 0px 0px 64px;
+}
+
+main img {
+  grid-area: hero;
+  align-self: end;
+  width: 138%;
+  padding-bottom: 48px;
+}
+
+main .fm-hero-caption {
+  grid-area: caption;
+  padding: 32px 0px;
+}
+
+main .fm-hero-caption .fm-badges {
+  font-size: 0.8em;
+}
+
+main .fm-hero-caption .fm-badges span {
+  font-size: inherit;
+  display: inline-block;
+  padding: 4px 12px;
+  letter-spacing: 0.3em;
+  font-family: var(--font-family-heading);
+  color: var(--color-grayish-blue);
+}
+
+main .fm-hero-caption .fm-badges #new {
+  background-color: var(--color-very-dark-blue);
+  border-radius: 16px;
+  color: var(--color-light-grayish-blue);
+  font-weight: var(--font-weight-heading-bold);
+  letter-spacing: 0.1em;
+}
+
+main .fm-hero-caption h1 {
+  padding: 16px 0px;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-bold);
+  font-size: 2em; 
+  line-height: 1em;
+  color: var(--color-very-dark-blue);
+}
+
+main .fm-hero-caption p {
+  text-transform: none;
+  color: var(--color-dark-grayish-blue);
+  line-height: 1.3em;
+}
+
+main .fm-call-to-action {
+  padding: 16px 0px;
+}
+
+main .fm-call-to-action a {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-right: 12px;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-bold);
+  font-size: 0.7em;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--color-light-grayish-blue);
+  background-color: var(--color-red);
+  border-radius: 8px;
+  transition: var(--time-transition);
+}
+
+main .fm-call-to-action a:hover {
+  background-color: var(--color-red-light);
+}
+
+main .fm-call-to-action p {
+  display: inline-block;
+  font-family: var(--font-family-heading);
+  font-size: 0.7em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 375px) {
+  main img {
+    width: auto;
+    height: 300px;
+  }
+}
+
+@media (min-width: 536px) {
+  main img {
+    justify-self: end;
+  }
 }
 
 @media (min-width: 800px) {
@@ -195,11 +310,54 @@ header.toggled nav {
   header nav .separator {
     display: inline-block;
   }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'caption hero' 'caption hero';
+
+    width: calc(100vw - 5%);
+    margin-left: calc(100vw - 95%);
+  }
+
+  main .container {
+    width: 100%;
+  }
+
+  main img {
+    justify-self: auto;
+    align-self: center;
+    width: 138%;
+    height: auto;
+    padding-bottom: 0px;
+  }
+
+  main .fm-hero-caption {
+    align-self: center;
+  }
+
+  main .fm-hero-caption h1 {
+    padding-bottom: 24px;
+    font-size: 3.2em;
+  }
+
+  main .fm-call-to-action {
+    padding-top: 48px;
+  }
 }
 
 @media (min-width: 1000px) {
   .container {
     width: 80%;
+  }
+
+  main {
+    width: calc(100vw - 10%);
+    margin-left: calc(100vw - 90%);
+  }
+
+  main .container {
+    width: 100%;
   }
 
   header nav a {
