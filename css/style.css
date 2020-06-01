@@ -154,7 +154,7 @@ header.toggled nav {
 }
 
 main {
-  height: 100vh;
+  height: 100%;
   overflow-x: hidden;
 
   display: grid;
