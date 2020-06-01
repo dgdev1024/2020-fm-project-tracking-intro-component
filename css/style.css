@@ -1,0 +1,208 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap');
+
+/* Variables */
+:root {
+  --color-red: hsl(0, 100%, 68%);
+  --color-very-dark-blue: hsl(230, 29%, 20%);
+  --color-dark-grayish-blue: hsl(230, 11%, 40%);
+  --color-grayish-blue: hsl(231, 7%, 65%);
+  --color-light-grayish-blue: hsl(207, 33%, 95%);
+
+  --font-family-normal: 'Barlow', sans-serif;
+  --font-family-heading: 'Barlow Condensed', sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-heading: 400;
+  --font-weight-heading-bold: 700;
+
+  --font-size-normal: 18px;
+
+  --time-transition: 0.2s;
+}
+
+/* CSS Reset */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+  font-family: var(--font-family-normal);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  text-transform: uppercase;
+}
+
+/* Body Size */
+body {
+  min-height: 100vh;
+}
+
+/* Containers */
+.container {
+  width: 90%;
+  margin: 0px auto;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: transparent;
+}
+
+header .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 80px auto;
+  grid-template-areas: 'image toggle' 'nav nav';
+}
+
+header img {
+  grid-area: image;
+  align-self: center;
+  justify-self: start;
+}
+
+header button {
+  display: block;
+  grid-area: toggle;
+  align-self: center;
+  justify-self: end;
+
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  background-image: url('../img/icon-hamburger.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: black;
+  border: none;
+  transition-property: background-image;
+  transition-duration: var(--time-transition);
+}
+
+header button:focus {
+  outline: none;
+}
+
+header.toggled button {
+  background-image: url('../img/icon-close.svg');
+}
+
+header nav {
+  grid-area: nav;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  transition: var(--time-transition);
+}
+
+header nav a {
+  display: block;
+  width: 90%;
+  margin: 0px auto;
+  padding: 12px 0px;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-bold);
+  font-size: 0.9em;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: var(--color-very-dark-blue);
+}
+
+header nav a:first-child {
+  padding-top: 24px;
+}
+
+header nav a:nth-child(3) {
+  padding-bottom: 24px;
+}
+
+header nav .separator {
+  display: none;
+  width: 8px;
+  height: 8px;
+  margin: 0px 12px;
+  margin-bottom: 2px;
+  background-color: var(--color-grayish-blue);
+  border-radius: 50%;
+}
+
+header nav a#login {
+  padding: 24px 0px;
+  border-top: 1px solid var(--color-light-grayish-blue);
+  color: var(--color-grayish-blue);
+}
+
+header.toggled nav {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (min-width: 800px) {
+  .container {
+    width: 90%;
+  }
+
+  header .container {
+    grid-template-rows: 80px;
+    grid-template-areas: 'image nav';
+  }
+
+  header button {
+    display: none;
+  }
+
+  header nav {
+    align-self: center;
+    justify-self: end;
+    visibility: visible;
+    opacity: 1;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  header nav a {
+    display: inline-block;
+    width: auto;
+    margin: 0px 8px;
+    padding: 0px;
+  }
+
+  header nav a:first-child,
+  header nav a:nth-child(3) {
+    padding: 0px;
+  }
+
+  header nav a:first-child {
+    margin-left: 0px;
+  }
+
+  header nav a#login {
+    margin-right: 0px;
+    padding: 0px;
+    border: none;
+  }
+
+  header nav .separator {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    width: 80%;
+  }
+
+  header nav a {
+    margin: 0px 12px;
+  }
+}
