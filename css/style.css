@@ -37,7 +37,6 @@
 /* Body Size */
 body {
   height: 100vh;
-  min-height: 800px;
   overflow-x: hidden;
 }
 
@@ -264,6 +263,10 @@ main .fm-call-to-action p {
 }
 
 @media (min-width: 800px) {
+  body {
+    min-height: 640px;
+  }
+
   .container {
     width: 90%;
   }
