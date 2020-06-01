@@ -267,7 +267,7 @@ main .fm-call-to-action p {
   }
 
   header .container {
-    grid-template-rows: 80px;
+    grid-template-rows: 120px;
     grid-template-areas: 'image nav';
   }
 
