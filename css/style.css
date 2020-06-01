@@ -36,7 +36,6 @@
 
 /* Body Size */
 body {
-  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -153,12 +152,11 @@ header.toggled nav {
 }
 
 main {
-  height: 100vh;
   overflow-x: hidden;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 480px auto;
   grid-template-areas: 'hero hero' 'caption caption';
 }
 
@@ -263,6 +261,11 @@ main .fm-call-to-action p {
 }
 
 @media (min-width: 800px) {
+  body {
+    height: 100vh;
+    min-height: 800px;
+  }
+
   .container {
     width: 90%;
   }
@@ -313,6 +316,7 @@ main .fm-call-to-action p {
   }
 
   main {
+    height: 100%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'caption hero' 'caption hero';
