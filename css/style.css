@@ -36,8 +36,6 @@
 
 /* Body Size */
 body {
-  height: 100vh;
-  min-height: 800px;
   overflow-x: hidden;
 }
 
@@ -154,7 +152,6 @@ header.toggled nav {
 }
 
 main {
-  height: 100%;
   overflow-x: hidden;
 
   display: grid;
